@@ -115,9 +115,9 @@ const New: React.FC = () => {
     return(
         <Container>
             <header>
-                <img src={logoImg} alt="E-Vent +" />
+                <img src="" alt="username" />
 
-                <span>Cadastro de Eventos</span>
+                <span>Cadastro de Exames</span>
 
                 <a href="/profile">
                 <FiArrowLeft />
@@ -131,11 +131,11 @@ const New: React.FC = () => {
 
         <Form onSubmit={handleSubmit}>
 
-        <Dropzone onFileUploaded={setSelectedFile} />
+       
 
         <fieldset>
           <legend>
-            <h2>Dados do Evento</h2>
+            <h2>Dados do Exame</h2>
           </legend>
            <Input name="event_name" icon={MdLocalBar} placeholder="Nome do evento" />
         </fieldset>

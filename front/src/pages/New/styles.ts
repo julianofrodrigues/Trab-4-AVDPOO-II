@@ -36,12 +36,12 @@ export const Container = styled.div`
         margin-left: auto;
         margin-top: 0;
         height: 60px;
-        background: #FF9000;
+        background: #990033;
         border-radius: 10px;
         color: #FFF;
 
         &: hover {
-            background: ${shade(0.2, '#FF9000')};  
+            background: ${shade(0.2, '#990033')};  
         }
     }
     header button {

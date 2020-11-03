@@ -34,12 +34,12 @@ export const Container = styled.div`
         margin-left: auto;
         margin-top: 0;
         height: 60px;
-        background: #FF9000;
+        background: #129C22;
         border-radius: 10px;
         color: #FFF;
 
         &: hover {
-            background: ${shade(0.2, '#FF9000')};  
+            background: ${shade(0.2, '#129C22')};  
         }
     }
     .headerBtn {
@@ -63,89 +63,71 @@ export const Container = styled.div`
 
     div{
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        
     }
 
-    ul{
-        display: grid;
-        grid-gap: 10px;
-        padding: 10px;
-        list-style: none;
-    }
-    
-    ul li{
-        background: #fff;
-        padding: 24px;
+    table {
         border-radius: 8px;
-        position: relative;
-    }
-    
-    .trash{
-        position: absolute;
-        right: 24px;
-        top: 24px;
-        border: 0;
-    }
-    
-    .trash:hover{
-        opacity: 0.8;
-    }
-    
-    ul li strong{
-        display: block;
-        margin-bottom: 16px;
-        color: #41414d;
-    }
-    
-    ul li p + strong{
-        margin-top: 32px;
-    }
-    
-    ul li p{
-        color: #737380;
-        line-height: 21px;
-        font-size: 16px;
-    }
+        width: 100%;
+        background-color: #129C22;
+      }
 
-    ul img{
-        height: 120px;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
+      td, th {
+        border: #00cc66;
+        background-color: #00cc66;
+        text-align: left;
+        padding: 8px;
+      }
+      
+      tr:nth-child(even) {
+        background-color: #00cc66;
+      }
 
-    ul div{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    
-    .feedback {
-        text-decoration: none;
-        text-align: center;
-        font-weight: bold;
-        font-family: Arial;
+      .actionDetailBtn {
+        height: 60px;
+        width: 60px;
+        border-radius: 4px;
+        border: 1px solid #dcdce6;
+        background: transparent;
+        margin-left: 16px;
+        transition: border-color 0.2s;
+        background: #006699;
 
-        display: block;
-        line-height: 40px;
-
-
-        appearance: none;
-        background: #232129;
-        border-radius: 8px;
-        border: 0;
-        padding: 16px 24px;
-        font-size: 16px;
-        color: #FFF;
-        width: 48%;
-    
-            &: hover {
-                color: #FF9000;
-                background: ${shade(0.2, '#232129')};  
-            }
-            svg:hover path {
-                fill: #FF9000;
-              }
+        &: hover {
+            background: ${shade(0.2, '#006699')};  
         }
     }
+
+      .actionEditBtn {
+        height: 60px;
+        width: 60px;
+        border-radius: 4px;
+        border: 1px solid #dcdce6;
+        background: transparent;
+        margin-left: 16px;
+        transition: border-color 0.2s;
+        background: #ffcc33;
+
+        &: hover {
+            background: ${shade(0.2, '#ffcc33')};  
+        }
+    }
+
+      .actionDelBtn {
+        height: 60px;
+        width: 60px;
+        border-radius: 4px;
+        border: 1px solid #dcdce6;
+        background: transparent;
+        margin-left: 16px;
+        transition: border-color 0.2s;
+        background: #990033;
+
+        &: hover {
+            background: ${shade(0.2, '#990033')};  
+        }
+    }
+    
+    
+}
 `;
