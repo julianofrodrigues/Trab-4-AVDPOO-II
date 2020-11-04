@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback, ChangeEvent } from "react";
 import { FiPower, FiArrowLeft } from 'react-icons/fi';
 import { HiOutlineDocument } from "react-icons/hi";
-import { MdDateRange } from "react-icons/md";
 import Button from "../../components/Button";
 import Input from '../../components/Input'
 import { Container } from './styles';
@@ -12,7 +11,7 @@ import { Event } from "../../services/interfaces";
 import api from '../../services/api';
 import { useCookies } from 'react-cookie';
 
-const New: React.FC = () => {
+const EditType: React.FC = () => {
 
  
   const history = useHistory();
@@ -63,9 +62,9 @@ const New: React.FC = () => {
             <header>
                 <img src="" alt="username" />
 
-                <span>Cadastro de Exames</span>
+                <span>Edição do Tipo de Exame</span>
 
-                <a href="/profile">
+                <a href="/type">
                 <FiArrowLeft />
                     Voltar
                 </a>
@@ -79,20 +78,12 @@ const New: React.FC = () => {
 
         <fieldset>
           <legend>
-            <h2>Dados do Exame</h2>
+            <h2>Dados do Tipo de Exame</h2>
           </legend>
-          <select>
-            <option>Selecione um Funcionario</option>
-          </select>
-           <Input name="name" icon={HiOutlineDocument} placeholder="Nome do Exame" />
-           <select>
-            <option>Selecione o tipo de exame </option>
-          </select>
-           <Input name="validate" icon={MdDateRange} placeholder="Validade do Exame" />
-           
+           <Input name="name" icon={HiOutlineDocument} placeholder="Nome do Tipo de Exame" /> 
         </fieldset>
         <Button type="submit">
-          Cadastrar
+          Editar
         </Button>
       </Form>
         </Container>
@@ -100,4 +91,4 @@ const New: React.FC = () => {
     );
 }
 
-export default New;
+export default EditType;

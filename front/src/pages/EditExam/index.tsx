@@ -12,7 +12,7 @@ import { Event } from "../../services/interfaces";
 import api from '../../services/api';
 import { useCookies } from 'react-cookie';
 
-const New: React.FC = () => {
+const EditExam: React.FC = () => {
 
  
   const history = useHistory();
@@ -63,7 +63,7 @@ const New: React.FC = () => {
             <header>
                 <img src="" alt="username" />
 
-                <span>Cadastro de Exames</span>
+                <span>Edição de Exames</span>
 
                 <a href="/profile">
                 <FiArrowLeft />
@@ -92,7 +92,7 @@ const New: React.FC = () => {
            
         </fieldset>
         <Button type="submit">
-          Cadastrar
+          Editar
         </Button>
       </Form>
         </Container>
@@ -100,4 +100,4 @@ const New: React.FC = () => {
     );
 }
 
-export default New;
+export default EditExam;
