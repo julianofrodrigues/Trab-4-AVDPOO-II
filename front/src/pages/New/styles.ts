@@ -36,12 +36,12 @@ export const Container = styled.div`
         margin-left: auto;
         margin-top: 0;
         height: 60px;
-        background: #990033;
+        background: #b38f00;
         border-radius: 10px;
         color: #FFF;
 
         &: hover {
-            background: ${shade(0.2, '#990033')};  
+            background: ${shade(0.2, '#b38f00')};  
         }
     }
     header button {
@@ -52,7 +52,7 @@ export const Container = styled.div`
         background: transparent;
         margin-left: 16px;
         transition: border-color 0.2s;
-        background: #FFF;
+        background: #E02041;
     }
     header button:hover{
         border-color: #999 ;
@@ -102,7 +102,8 @@ export const Container = styled.div`
         padding: 16px 24px;
         font-size: 16px;
         color: #6C6C80;
-        width: 48%;
-        margin-bottom: 40px;   
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 10px;   
     }
 `;

@@ -34,16 +34,16 @@ export const Container = styled.div`
         margin-left: auto;
         margin-top: 0;
         height: 60px;
-        background: #129C22;
+        background: #b38f00;
         border-radius: 10px;
         color: #FFF;
 
         &: hover {
-            background: ${shade(0.2, '#129C22')};  
+            background: ${shade(0.2, '#b38f00')};  
         }
     }
 
-    .headerTypeExame {
+    .headerNewBtn {
         height: 60px;
         width: 260px;
         border-radius: 8px;
@@ -51,11 +51,12 @@ export const Container = styled.div`
         background: transparent;
         margin-left: 16px;
         transition: border-color 0.2s;
-        background: #006699;
+        background: #129C22;
 
         &: hover {
-            background: ${shade(0.2, '#006699')};  
+            background: ${shade(0.2, '#129C22')};  
         }
+
     }
 
     .headerBtn {
@@ -98,21 +99,6 @@ export const Container = styled.div`
       tr:nth-child(even) {
         background-color: #00cc66;
       }
-
-      .actionDetailBtn {
-        height: 60px;
-        width: 60px;
-        border-radius: 4px;
-        border: 1px solid #dcdce6;
-        background: transparent;
-        margin-left: 16px;
-        transition: border-color 0.2s;
-        background: #006699;
-
-        &: hover {
-            background: ${shade(0.2, '#006699')};  
-        }
-    }
 
       .actionEditBtn {
         height: 60px;

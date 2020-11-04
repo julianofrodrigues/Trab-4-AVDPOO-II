@@ -68,9 +68,11 @@ const Profile: React.FC = () => {
                 <span>Bem vindo, usuario </span>
 
                 <a href="/new">Cadastrar Exame</a>
+                <a href="/type" className="headerTypeExame">Tipos de Exame</a>
+
 
                 <button className="headerBtn" onClick={() => { }}>
-                <FiPower size={18} color="#E02041" />  
+                <FiPower size={18} color="#FFF" />  
                 </button>
             </header>
 
