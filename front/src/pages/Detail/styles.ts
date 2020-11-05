@@ -59,7 +59,7 @@ export const Container = styled.div`
         border-color: #999 ;
     }
 
-    form{
+    .detail{
         margin: 80px auto;
         padding: 64px;
         max-width: 730px;
@@ -70,41 +70,37 @@ export const Container = styled.div`
         flex-direction: column;
     }
 
-    form fieldset{
-        margin-top: 64px;
+    .detail fieldset{
+        margin-top: 10px;
         min-inline-size: auto;
         border: 0;
     }
 
-    form legend{
+    .detail legend{
         width: 100%;
         display: flex;
         align-items: center;
         margin-bottom: 40px;
     }
 
-    form legend h2{
+    .detail legend h2{
         font-size: 24px;
+        
     }
-    
-    form div{
+    .detail div{
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
+        margin-bottom: 20px;
     }
+    .detail img{
+        max-width: 100px;
+        height: 100px;
+    }
+    .detail p{
+        margin-bottom: 20px;
+    }
+    
+    
 
-    form select {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        background: #232129;
-        border-radius: 8px;
-        border: 0;
-        padding: 16px 24px;
-        font-size: 16px;
-        color: #6C6C80;
-        width: 100%;
-        margin-top: 10px;
-        margin-bottom: 10px;   
-    }
 `;

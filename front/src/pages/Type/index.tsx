@@ -1,5 +1,7 @@
 import React, { useState, useEffect  } from "react";
 import { FiPower, FiArchive, FiEdit, FiTrash2, FiArrowLeft } from 'react-icons/fi';
+import TestPerfil from '../../assets/pefil-example.png';
+
 
 import { Container } from './styles';
 
@@ -9,7 +11,7 @@ const Type: React.FC = () => {
     return(
         <Container>
             <header>
-                <img  alt="name" />
+                <img src={TestPerfil}  alt="name" />
 
                 <span>Tipos de Exame</span>
                 <a href="/profile">

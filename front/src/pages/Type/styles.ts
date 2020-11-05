@@ -13,7 +13,8 @@ export const Container = styled.div`
     }
 
     header img{
-        height: 120px;
+        max-width: 100px;
+        height: 100px;
     }
     span{
         font-size: 20px;

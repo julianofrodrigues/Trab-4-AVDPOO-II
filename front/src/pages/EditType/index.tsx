@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, ChangeEvent } from "react";
 import { FiPower, FiArrowLeft } from 'react-icons/fi';
 import { HiOutlineDocument } from "react-icons/hi";
+import TestPerfil from '../../assets/pefil-example.png';
 import Button from "../../components/Button";
 import Input from '../../components/Input'
 import { Container } from './styles';
@@ -60,7 +61,7 @@ const EditType: React.FC = () => {
     return(
         <Container>
             <header>
-                <img src="" alt="username" />
+                <img src={TestPerfil} alt="username" />
 
                 <span>Edição do Tipo de Exame</span>
 

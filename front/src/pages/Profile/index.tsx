@@ -1,7 +1,6 @@
 import React, { useState, useEffect  } from "react";
 import { FiPower, FiArchive, FiEdit, FiTrash2 } from 'react-icons/fi';
-import { AiTwotoneLike, AiTwotoneDislike } from "react-icons/ai";
-import logoImg from '../../assets/logo.png';
+import TestPerfil from '../../assets/pefil-example.png';
 import { Container } from './styles';
 import api from '../../services/api';
 import { useCookies } from 'react-cookie';
@@ -63,7 +62,7 @@ const Profile: React.FC = () => {
     return(
         <Container>
             <header>
-                <img  alt="name" />
+                <img src={TestPerfil}  alt="name" />
 
                 <span>Bem vindo, usuario </span>
 

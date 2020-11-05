@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback, ChangeEvent } from "react";
 import { FiPower, FiArrowLeft } from 'react-icons/fi';
+import TestPerfil from '../../assets/pefil-example.png';
 import { HiOutlineDocument } from "react-icons/hi";
 import { MdDateRange } from "react-icons/md";
 import Button from "../../components/Button";
@@ -61,7 +62,7 @@ const New: React.FC = () => {
     return(
         <Container>
             <header>
-                <img src="" alt="username" />
+                <img src={TestPerfil} alt="username" />
 
                 <span>Cadastro de Exames</span>
 
