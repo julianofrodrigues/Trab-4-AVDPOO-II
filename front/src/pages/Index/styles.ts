@@ -13,8 +13,8 @@ export const Container = styled.div`
     }
 
     header img{
-        max-width: 100px;
-        height: 100px;
+        max-width: 300px;
+        height: 50px;
     }
     span{
         font-size: 20px;
@@ -35,44 +35,17 @@ export const Container = styled.div`
         margin-left: auto;
         margin-top: 0;
         height: 60px;
-        background: #b38f00;
+        background: #129C22;
         border-radius: 10px;
         color: #FFF;
 
         &: hover {
-            background: ${shade(0.2, '#b38f00')};  
-        }
-    }
-
-    .headerNewBtn {
-        height: 60px;
-        width: 260px;
-        border-radius: 8px;
-        border: none;
-        background: transparent;
-        margin-left: 16px;
-        transition: border-color 0.2s;
-        background: #129C22;
-
-        &: hover {
             background: ${shade(0.2, '#129C22')};  
         }
-
     }
 
-    .headerBtn {
-        height: 60px;
-        width: 60px;
-        border-radius: 4px;
-        border: 1px solid #dcdce6;
-        background: transparent;
-        margin-left: 16px;
-        transition: border-color 0.2s;
-        background: #E02041;
-    }
-    .headerBtn:hover{
-        border-color: #999 ;
-    }
+    
+
 
     h1{
         margin-top: 80px;
@@ -82,6 +55,29 @@ export const Container = styled.div`
     div{
         display: grid;
         
+    }
+    div a{
+        text-decoration: none;
+        text-align: center;
+        font-weight: bold;
+        font-family: Arial;
+
+        display: block;
+        height: 40px;
+        line-height: 40px;
+        padding: 10px 5px;
+    
+        width: 260px;
+        margin-top: 0;
+        margin-bottom: 20px;
+        height: 60px;
+        background: #b38f00;
+        border-radius: 10px;
+        color: #FFF;
+
+        &: hover {
+            background: ${shade(0.2, '#b38f00')};  
+        }
     }
 
     table {
@@ -100,6 +96,21 @@ export const Container = styled.div`
       tr:nth-child(even) {
         background-color: #00cc66;
       }
+
+      .actionDetailBtn {
+        height: 60px;
+        width: 60px;
+        border-radius: 4px;
+        border: 1px solid #dcdce6;
+        background: transparent;
+        margin-left: 16px;
+        transition: border-color 0.2s;
+        background: #006699;
+
+        &: hover {
+            background: ${shade(0.2, '#006699')};  
+        }
+    }
 
       .actionEditBtn {
         height: 60px;

@@ -1,40 +1,35 @@
 import React, { useState, useEffect  } from "react";
-import { FiPower, FiArchive, FiEdit, FiTrash2, FiArrowLeft } from 'react-icons/fi';
-import TestPerfil from '../../assets/pefil-example.png';
-
-
+import { FiPower, FiArchive, FiEdit, FiTrash2 } from 'react-icons/fi';
+import Logo from '../../assets/logo.png';
 import { Container } from './styles';
 
 
-const Type: React.FC = () => {
+
+const Index: React.FC = () => {
+    
 
     return(
         <Container>
             <header>
-                <img src={TestPerfil}  alt="name" />
-
-                <span>Tipos de Exame</span>
-                <a href="/profile">
-                <FiArrowLeft />
-                    Voltar
-                </a>
-                <a className="headerNewBtn" href="/newtype">Cadastrar Tipo do Exame</a>
-
-                <button className="headerBtn" onClick={() => { }}>
-                <FiPower size={18} color="#FFF" />  
-                </button>
+                <img src={Logo}  alt="name" />
+                <a href="/new">Cadastrar Exames</a>
             </header>
 
-            <h1>Tipos de Exames Cadastrados</h1>
+            <h1>Exames Cadastrados</h1>
             <div>
                 <table>
                     <tr>
-                        <th>Tipo do Exame</th>
+                        <th>Nome do Medico</th>
+                        <th>Nome do Paciente</th>
                         <th>Ações</th>
                     </tr>
                     <tr>
-                        <td>Sangue</td>
+                        <td>Lucas</td>
+                        <td>Juliano</td>
                         <td>
+                            <button className="actionDetailBtn" onClick={() => { }}>
+                                <FiArchive size={18} color="#FFF" />  
+                            </button>
                             <button className="actionEditBtn" onClick={() => { }}>
                                 <FiEdit size={18} color="#FFF" />  
                             </button>
@@ -44,8 +39,12 @@ const Type: React.FC = () => {
                         </td>
                      </tr>
                      <tr>
-                        <td>Colesterol</td>
+                        <td>Juliano</td>
+                        <td>Lucas</td>
                         <td>
+                            <button className="actionDetailBtn" onClick={() => { }}>
+                                <FiArchive size={18} color="#FFF" />  
+                            </button>
                             <button className="actionEditBtn" onClick={() => { }}>
                                 <FiEdit size={18} color="#FFF" />  
                             </button>
@@ -62,4 +61,4 @@ const Type: React.FC = () => {
     );
 }
 
-export default Type;
+export default Index;

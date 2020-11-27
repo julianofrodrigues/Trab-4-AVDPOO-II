@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useCallback, ChangeEvent } from "react";
-import { FiPower, FiArrowLeft } from 'react-icons/fi';
-import TestPerfil from '../../assets/pefil-example.png';
-import { HiOutlineDocument } from "react-icons/hi";
-import { MdDateRange } from "react-icons/md";
+import { FiArrowLeft } from 'react-icons/fi';
+import Logo from '../../assets/logo.png';
+
 import Button from "../../components/Button";
 import Input from '../../components/Input'
 import { Container } from './styles';
@@ -62,18 +61,14 @@ const New: React.FC = () => {
     return(
         <Container>
             <header>
-                <img src={TestPerfil} alt="username" />
+                <img src={Logo} alt="username" />
 
                 <span>Cadastro de Exames</span>
 
-                <a href="/profile">
+                <a href="/">
                 <FiArrowLeft />
                     Voltar
                 </a>
-
-                <button>
-                <FiPower size={18} color="#FFF" />  
-                </button>
             </header>
 
         <Form onSubmit={handleSubmit}>
@@ -83,13 +78,16 @@ const New: React.FC = () => {
             <h2>Dados do Exame</h2>
           </legend>
           <select>
-            <option>Selecione um Funcionario</option>
+            <option>Selecione um Medico</option>
           </select>
-           <Input name="name" icon={HiOutlineDocument} placeholder="Nome do Exame" />
+           <p hidden>Especialidade: </p>
            <select>
-            <option>Selecione o tipo de exame </option>
+            <option>Selecione o  Paciente</option>
           </select>
-           <Input name="validate" icon={MdDateRange} placeholder="Validade do Exame" />
+
+           <Input type="date" name="validate"  placeholder="Data do Exame" />
+           <Input type="time" name="validate"  placeholder="Data do Exame" />
+
            
         </fieldset>
         <Button type="submit">

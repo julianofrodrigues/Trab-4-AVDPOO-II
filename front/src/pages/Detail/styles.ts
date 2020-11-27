@@ -15,8 +15,8 @@ export const Container = styled.div`
     }
 
     header img{
-        max-width: 100px;
-        height: 100px;
+        max-width: 300px;
+        height: 50px;
     }
     span{
         font-size: 20px;
@@ -45,19 +45,7 @@ export const Container = styled.div`
             background: ${shade(0.2, '#b38f00')};  
         }
     }
-    header button {
-        height: 60px;
-        width: 60px;
-        border-radius: 4px;
-        border: 1px solid #dcdce6;
-        background: transparent;
-        margin-left: 16px;
-        transition: border-color 0.2s;
-        background: #E02041;
-    }
-    header button:hover{
-        border-color: #999 ;
-    }
+    
 
     .detail{
         margin: 80px auto;
@@ -93,10 +81,7 @@ export const Container = styled.div`
         justify-content: center;
         margin-bottom: 20px;
     }
-    .detail img{
-        max-width: 100px;
-        height: 100px;
-    }
+    
     .detail p{
         margin-bottom: 20px;
     }

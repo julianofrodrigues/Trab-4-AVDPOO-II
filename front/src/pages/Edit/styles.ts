@@ -15,8 +15,8 @@ export const Container = styled.div`
     }
 
     header img{
-        max-width: 100px;
-        height: 100px;
+        max-width: 300px;
+        height: 50px;
     }
     span{
         font-size: 20px;

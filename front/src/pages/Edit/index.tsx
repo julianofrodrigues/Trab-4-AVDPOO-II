@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, ChangeEvent } from "react";
-import { FiPower, FiArrowLeft } from 'react-icons/fi';
-import { HiOutlineDocument } from "react-icons/hi";
-import TestPerfil from '../../assets/pefil-example.png';
+import { FiArrowLeft } from 'react-icons/fi';
+import Logo from '../../assets/logo.png';
+
 import Button from "../../components/Button";
 import Input from '../../components/Input'
 import { Container } from './styles';
@@ -12,7 +12,7 @@ import { Event } from "../../services/interfaces";
 import api from '../../services/api';
 import { useCookies } from 'react-cookie';
 
-const NewType: React.FC = () => {
+const Edit: React.FC = () => {
 
  
   const history = useHistory();
@@ -61,30 +61,37 @@ const NewType: React.FC = () => {
     return(
         <Container>
             <header>
-                <img src={TestPerfil} alt="username" />
+                <img src={Logo} alt="username" />
 
-                <span>Cadastro do Tipo de Exame</span>
+                <span>Edição de Exames</span>
 
-                <a href="/type">
+                <a href="/">
                 <FiArrowLeft />
                     Voltar
                 </a>
-
-                <button>
-                <FiPower size={18} color="#FFF" />  
-                </button>
             </header>
 
         <Form onSubmit={handleSubmit}>
 
         <fieldset>
           <legend>
-            <h2>Dados do Tipo de Exame</h2>
+            <h2>Dados do Exame</h2>
           </legend>
-           <Input name="name" icon={HiOutlineDocument} placeholder="Nome do Tipo de Exame" /> 
+          <select>
+            <option>Selecione um Medico</option>
+          </select>
+           <p>Especialidade: </p>
+           <select>
+            <option>Selecione o  Paciente</option>
+          </select>
+
+           <Input type="date" name="validate"  placeholder="Data do Exame" />
+           <Input type="time" name="validate"  placeholder="Data do Exame" />
+
+           
         </fieldset>
         <Button type="submit">
-          Cadastrar
+          Editar
         </Button>
       </Form>
         </Container>
@@ -92,4 +99,4 @@ const NewType: React.FC = () => {
     );
 }
 
-export default NewType;
+export default Edit;
