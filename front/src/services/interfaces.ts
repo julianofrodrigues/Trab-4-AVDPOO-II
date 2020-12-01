@@ -1,16 +1,25 @@
-export interface Event {
+export interface Appointment {
     _id: string;
-    event_name: string;
-    district: string;
-    street: string;
-    number: string;
-    uf: string;
-    city: string;
-    photo: string;
-    commentary: string;
-    user_id: string;
-    createdAt: Date;
-    updatedAt: Date;
-    likes: number;
-    dislikes: number;
+    doctor_id: string;
+    patient_id: string;
+    date: string;
+    time: string;
+    doctor: {
+        name: string;
+        specialty: string;
+    };
+    patient: {
+        name: string;
+    };
+}
+
+export interface Doctor {
+    _id: string;
+    name: string;
+    specialty: string;
+}
+
+export interface Patient {
+    _id: string;
+    name: string;
 }

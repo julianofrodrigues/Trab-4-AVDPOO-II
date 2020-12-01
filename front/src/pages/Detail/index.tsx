@@ -1,14 +1,43 @@
 import React, { useState, useEffect, useCallback, ChangeEvent } from "react";
 import {  FiArrowLeft } from 'react-icons/fi';
 import Logo from '../../assets/logo.png';
-
-
 import { Container } from './styles';
+import { useRouteMatch, useHistory } from 'react-router-dom';
+import { Doctor, Patient, Appointment } from "../../services/interfaces";
+import api from '../../services/api';
 
-import { useHistory, useLocation } from 'react-router-dom';
-
+interface CardParams {
+  id: string;
+}
 
 const Detail: React.FC = () => {
+  const history = useHistory();
+  const [appointment, setAppointment] = useState<Appointment | null>(null);
+  const [selectedDoctor, setSelectedDoctor] = useState('');
+  const [selectedPatient, setSelectedPatient] = useState('');
+  const [doctor, setDoctor] = useState<Doctor[]>([]);
+  const [patient, setPatient] = useState<Patient[]>([]);
+  const { params } = useRouteMatch<CardParams>();
+
+  const load = async () => {
+    await api
+      .get('doctors')
+      .then(({ data }) => {
+        setDoctor(data.docs)
+      })
+    await api
+      .get('patients')
+      .then(({ data }) => {
+        setPatient(data.docs)
+      })
+    await api
+      .get('appointments/' + params.id)
+      .then(({ data }) => {
+        setAppointment(data)
+      })
+  }
+  useEffect(() => {
+    load()}, [params.id])
 
     return(
         <Container>
@@ -29,18 +58,16 @@ const Detail: React.FC = () => {
           <legend>
             <h2>Dados do Exame</h2>
           </legend>
-          
-
           <label>Nome do Medico:</label>
-          <p>Lucas</p>
+          <p>{ appointment ? appointment.doctor.name : null }</p>
           <label>Especialidade</label>
-          <p>Sangue</p>
+          <p>{ appointment ? appointment.doctor.specialty : null }</p>
           <label>Nome do Paciente:</label>
-          <p>Juliano</p>
+          <p>{ appointment ? appointment.patient.name : null }</p>
           <label>Data do Exame:</label>
-          <p>20/12/2020</p>
+          <p>{ appointment ? appointment.date : null }</p>
           <label>Horario do Exame:</label>
-          <p>10:30</p>
+          <p>{ appointment ? appointment.time : null }</p>
         </fieldset>
         
       </div>

@@ -1,55 +1,84 @@
-import React, { useState, useEffect, useCallback, ChangeEvent } from "react";
+import React, { useState, useEffect, ChangeEvent } from "react";
 import { FiArrowLeft } from 'react-icons/fi';
 import Logo from '../../assets/logo.png';
-
 import Button from "../../components/Button";
 import Input from '../../components/Input'
 import { Container } from './styles';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
-import { useHistory, useLocation } from 'react-router-dom';
-import { Event } from "../../services/interfaces";
+import { useHistory } from 'react-router-dom';
+import { Doctor, Patient, Appointment } from "../../services/interfaces";
 import api from '../../services/api';
-import { useCookies } from 'react-cookie';
+import { error } from "console";
 
 const New: React.FC = () => {
 
- 
   const history = useHistory();
-  const [cookies, setCookie, removeCookie] = useCookies(['cookie-name']);
+  const [selectedDoctor, setSelectedDoctor] = useState('');
+  const [selectedPatient, setSelectedPatient] = useState('');
+  const [doctor, setDoctor] = useState<Doctor[]>([]);
+  const [patient, setPatient] = useState<Patient[]>([]);
 
-  async function handleSubmit(data: Event) {
+  const load = async () => {
+    await api
+      .get('doctors')
+      .then(({ data }) => {
+        setDoctor(data.docs)
+      })
+    await api
+      .get('patients')
+      .then(({ data }) => {
+        setPatient(data.docs)
+      })
+  }
+  useEffect(() => {
+    load()}, [])
+
+  function handleSelectDoctor(event: ChangeEvent<HTMLSelectElement>) {
+    const res = event.target.value;
+
+    setSelectedDoctor(res);
+  };
+
+  function handleSelectPatient(event: ChangeEvent<HTMLSelectElement>) {
+    const res = event.target.value;
+
+    setSelectedPatient(res);
+  };
+
+  async function handleSubmit(data: Appointment) {
       try {
         const schema = Yup.object().shape({
-          event_name: Yup.string().required('Nome do evento obrigatório'),
+          date: Yup.string().required('Data do exame obrigatório'),
+          time: Yup.string().required('Hora do exame obrigatório'),
         });
 
         await schema.validate(data, {
             abortEarly: false
         });
 
-        console.log(data)
-        const place = ''
-        let bodyFormData = new FormData();
-        bodyFormData.set('event_name', data.event_name);
-        bodyFormData.set('district', data.district);
-        bodyFormData.set('street', data.street);
-        bodyFormData.set('number', data.number);
-        bodyFormData.set('commentary', data.commentary);
-        bodyFormData.set('user_id', cookies.user._id);
-        
+        if (!selectedDoctor || !selectedPatient) {
+          throw new Error("Doutor e Paciente são obrigatórios");
+        }
 
+        let body = {
+          doctor_id: selectedDoctor,
+          patient_id: selectedPatient,
+          date: data.date,
+          time: data.time
+        }
+        
         try {
             await api({
                 method: 'post',
-                url: 'events',
-                data: bodyFormData,
-                headers: {'Content-Type': 'multipart/form-data' }
+                url: 'appointments',
+                data: body,
+                headers: {'Content-Type': 'application/json' }
                 })
 
             alert('Cadastro efetuado com sucesso.')
 
-            history.push('/profile')
+            history.push('/')
         } catch (err) {
             alert('Erro ao cadastrar seus dados.')
         }
@@ -77,16 +106,40 @@ const New: React.FC = () => {
           <legend>
             <h2>Dados do Exame</h2>
           </legend>
-          <select>
-            <option>Selecione um Medico</option>
+          <select
+            value={selectedDoctor}
+            onChange={handleSelectDoctor}
+          >
+            <option>Selecione o Medico</option>
+          {
+            doctor.length > 0
+            ? doctor.map((o) => {
+                return (
+                  <option key={o._id} value={o._id}>{o.name}</option>
+                )
+              })
+            : <option>Nenhum Medico encontrado</option>
+          }
           </select>
            <p hidden>Especialidade: </p>
-           <select>
-            <option>Selecione o  Paciente</option>
+           <select
+              value={selectedPatient}
+              onChange={handleSelectPatient}
+            >
+            <option>Selecione o Paciente</option>
+          {
+            patient.length > 0
+            ? patient.map((o) => {
+                return (
+                  <option key={o._id} value={o._id}>{o.name}</option>
+                )
+              })
+            : <option>Nenhum Paciente encontrado</option>
+          }
           </select>
 
-           <Input type="date" name="validate"  placeholder="Data do Exame" />
-           <Input type="time" name="validate"  placeholder="Data do Exame" />
+           <Input name="date" type="date" placeholder="Data do Exame" />
+           <Input name="time" type="time" placeholder="Hora do Exame" />
 
            
         </fieldset>
