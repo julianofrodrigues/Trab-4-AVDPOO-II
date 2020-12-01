@@ -52,6 +52,8 @@ const Edit: React.FC = () => {
       .get('appointments/' + params.id)
       .then(({ data }) => {
         setAppointment(data)
+        setSelectedDoctor(data.doctor_id)
+        setSelectedPatient(data.patient_id)
       })
       
   }
@@ -116,7 +118,6 @@ const Edit: React.FC = () => {
         </legend>
         <select
           value={selectedDoctor}
-          defaultValue={appointment?.doctor_id}
           onChange={handleSelectDoctor}
         >
           
@@ -132,7 +133,6 @@ const Edit: React.FC = () => {
         </select>
          <select
             value={selectedPatient}
-            defaultValue={appointment?.patient_id}
             onChange={handleSelectPatient}
           >
          
