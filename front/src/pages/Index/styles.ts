@@ -83,18 +83,18 @@ export const Container = styled.div`
     table {
         border-radius: 8px;
         width: 100%;
-        background-color: #129C22;
+        background-color: #004d00;
       }
 
       td, th {
         border: #00cc66;
-        background-color: #00cc66;
+        background-color: #003300;
         text-align: left;
         padding: 8px;
       }
       
       tr:nth-child(even) {
-        background-color: #00cc66;
+        background-color: #003300;
       }
 
       .actionDetailBtn {

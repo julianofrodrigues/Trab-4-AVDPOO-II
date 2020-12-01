@@ -23,6 +23,7 @@ const Edit: React.FC = () => {
   const [doctor, setDoctor] = useState<Doctor[]>([]);
   const [patient, setPatient] = useState<Patient[]>([]);
   const { params } = useRouteMatch<CardParams>();
+  
 
   function handleSelectDoctor(event: ChangeEvent<HTMLSelectElement>) {
     const res = event.target.value;
@@ -52,6 +53,7 @@ const Edit: React.FC = () => {
       .then(({ data }) => {
         setAppointment(data)
       })
+      
   }
   useEffect(() => {
     load()}, [params.id])
@@ -82,7 +84,7 @@ const Edit: React.FC = () => {
                 headers: {'Content-Type': 'application/json' }
                 })
 
-            alert('Cadastro efetuado com sucesso.')
+            alert('Edição efetuado com sucesso.')
 
             history.push('/')
         } catch (err) {
@@ -96,9 +98,9 @@ const Edit: React.FC = () => {
   return(
       <Container>
           <header>
-              <img src={Logo} alt="username" />
+              <img src={Logo} alt="Abc Exames" />
 
-              <span>Cadastro de Exames</span>
+              <span>Edição de Exames</span>
 
               <a href="/">
               <FiArrowLeft />
@@ -107,32 +109,33 @@ const Edit: React.FC = () => {
           </header>
 
       <Form onSubmit={handleSubmit}>
-
+      
       <fieldset>
         <legend>
           <h2>Dados do Exame</h2>
         </legend>
         <select
           value={selectedDoctor}
+          defaultValue={appointment?.doctor_id}
           onChange={handleSelectDoctor}
         >
-          <option>Selecione o Medico</option>
+          
         {
           doctor.length > 0
           ? doctor.map((o) => {
               return (
-                <option key={o._id} value={o._id}>{o.name}</option>
+              <option key={o._id} value={o._id}> {o.name} - {o.specialty}</option>
               )
             })
           : <option>Nenhum Medico encontrado</option>
         }
         </select>
-         <p hidden>Especialidade: </p>
          <select
             value={selectedPatient}
+            defaultValue={appointment?.patient_id}
             onChange={handleSelectPatient}
           >
-          <option>Selecione o Paciente</option>
+         
         {
           patient.length > 0
           ? patient.map((o) => {
@@ -144,13 +147,13 @@ const Edit: React.FC = () => {
         }
         </select>
 
-         <Input name="date" type="date" placeholder="Data do Exame" />
-         <Input name="time" type="time" placeholder="Hora do Exame" />
+         <Input name="date" defaultValue={appointment?.date} type="date" placeholder="Data do Exame" />
+         <Input name="time" defaultValue={appointment?.time} type="time" placeholder="Hora do Exame" />
 
          
       </fieldset>
       <Button type="submit">
-        Cadastrar
+        Editar
       </Button>
     </Form>
       </Container>

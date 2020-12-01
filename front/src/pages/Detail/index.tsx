@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useCallback, ChangeEvent } from "react";
+import React, { useState, useEffect } from "react";
 import {  FiArrowLeft } from 'react-icons/fi';
 import Logo from '../../assets/logo.png';
 import { Container } from './styles';
-import { useRouteMatch, useHistory } from 'react-router-dom';
+import { useRouteMatch } from 'react-router-dom';
 import { Doctor, Patient, Appointment } from "../../services/interfaces";
 import api from '../../services/api';
 
@@ -11,10 +11,8 @@ interface CardParams {
 }
 
 const Detail: React.FC = () => {
-  const history = useHistory();
+  
   const [appointment, setAppointment] = useState<Appointment | null>(null);
-  const [selectedDoctor, setSelectedDoctor] = useState('');
-  const [selectedPatient, setSelectedPatient] = useState('');
   const [doctor, setDoctor] = useState<Doctor[]>([]);
   const [patient, setPatient] = useState<Patient[]>([]);
   const { params } = useRouteMatch<CardParams>();

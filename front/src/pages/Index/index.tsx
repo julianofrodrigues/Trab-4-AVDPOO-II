@@ -1,5 +1,5 @@
 import React, { useState, useEffect  } from "react";
-import { FiPower, FiArchive, FiEdit, FiTrash2 } from 'react-icons/fi';
+import { FiArchive, FiEdit, FiTrash2 } from 'react-icons/fi';
 import Logo from '../../assets/logo.png';
 import { Container } from './styles';
 import api from '../../services/api';

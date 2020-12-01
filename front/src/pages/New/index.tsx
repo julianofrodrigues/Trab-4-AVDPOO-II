@@ -9,14 +9,14 @@ import * as Yup from 'yup';
 import { useHistory } from 'react-router-dom';
 import { Doctor, Patient, Appointment } from "../../services/interfaces";
 import api from '../../services/api';
-import { error } from "console";
 
 const New: React.FC = () => {
 
   const history = useHistory();
-  const [selectedDoctor, setSelectedDoctor] = useState('');
+  
   const [selectedPatient, setSelectedPatient] = useState('');
   const [doctor, setDoctor] = useState<Doctor[]>([]);
+  const [selectedDoctor, setSelectedDoctor] = useState('');
   const [patient, setPatient] = useState<Patient[]>([]);
 
   const load = async () => {
@@ -39,6 +39,9 @@ const New: React.FC = () => {
 
     setSelectedDoctor(res);
   };
+
+ 
+
 
   function handleSelectPatient(event: ChangeEvent<HTMLSelectElement>) {
     const res = event.target.value;
@@ -115,13 +118,13 @@ const New: React.FC = () => {
             doctor.length > 0
             ? doctor.map((o) => {
                 return (
-                  <option key={o._id} value={o._id}>{o.name}</option>
+                <option key={o._id} value={o._id}>{o.name} - {o.specialty}</option>
                 )
               })
             : <option>Nenhum Medico encontrado</option>
           }
           </select>
-           <p hidden>Especialidade: </p>
+
            <select
               value={selectedPatient}
               onChange={handleSelectPatient}
